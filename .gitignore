@@ -9,7 +9,8 @@
 /YKCShooter/[Bb]uilds/
 /YKCShooter/[Ll]ogs/
 /YKCShooter/[Uu]ser[Ss]ettings/
-/YKCShooter/CustomAssets/
+
+/YKCShooter/[Aa]ssets/CustomAssets/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
