@@ -15,11 +15,10 @@ public class AimController : MonoBehaviour
     public void FixedUpdate()
     {
         aim.position = moveAim;
-        //joystick.SnapX = true;
-        //joystick.SnapY = true;
         float stickH = joystick.Horizontal;
         float stickV = joystick.Vertical;
         //Debug.Log($"H: {stickH}    V: {stickV}");
+        //영역 설정 해야함
         if (-15 > transform.position.x) 
         {
             if (stickH > 0) moveAim.x = transform.position.x + stickH * speed;
