@@ -7,26 +7,24 @@ using TMPro;
 
 public class TitleUIManager : MonoBehaviour
 {
-    public GameObject titleLogo;
-    public GameObject startText;
-    public GameObject[] titleButton;
+    [SerializeField] GameObject titleLogo;
+    [SerializeField] GameObject startText;
+    [SerializeField] GameObject[] titleButton;
 
-    public int logoY;
-    public int buttonX;
+    [SerializeField] int logoY;
+    [SerializeField] int buttonX;
 
     private void Start()
     {
-        startText.GetComponent<TextMeshProUGUI>().DOFade(0,1).SetLoops(-1, LoopType.Yoyo);
+        startText.GetComponent<TextMeshProUGUI>().DOFade(0, 1.2f).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            TouchTitle();
-        }
+        
     }
 
+    // 맨 처음 터치
     public void TouchTitle()
     {
         titleLogo.transform.DOMoveY(logoY, 1).SetEase(Ease.OutQuad);

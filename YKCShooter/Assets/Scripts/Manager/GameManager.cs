@@ -6,8 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
+    {        
+        if(Instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     void Update()

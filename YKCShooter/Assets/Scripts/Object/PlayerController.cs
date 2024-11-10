@@ -6,30 +6,33 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
-    public FixedJoystick joystick;
-    public Transform character;
+    [SerializeField] FixedJoystick joystick;
+    [SerializeField] Transform character;
+    [SerializeField] Animator animator;
 
     void Start()
     {
 
     }
-    void LateUpdate()
+    void Update()
     {
         if (joystick.IsTouching)
         {
             CharacterRoatate();
-        }        
+            animator.SetBool("IsTouching", true);
+        }
+        else
+        {
+            animator.SetBool("IsTouching", false);
+        }
     }
 
-    /// <summary>
-    /// 캐릭터 회전
-    /// </summary>
     void CharacterRoatate()
     {
         float stickH = joystick.Horizontal;
         float stickV = joystick.Vertical;
 
         double y = Mathf.Atan2(stickH, stickV) * (180.0 / Math.PI);
-        character.rotation = Quaternion.Euler(0, (float)y, 0);
+        character.rotation = Quaternion.Euler(0, (float)y+10f, 0); // 10도 보정
     }
 }

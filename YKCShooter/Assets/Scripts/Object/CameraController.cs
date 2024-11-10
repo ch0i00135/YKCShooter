@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
-{    
-    public Transform cameraPivot;
-    public Slider cameraDistanceSlider;
-    public Slider cameraHeightSlider;
+{
+    [SerializeField] Transform cameraPivot;
+    [SerializeField] Slider cameraDistanceSlider;
+    [SerializeField] Slider cameraHeightSlider;
 
     void Update()
     {

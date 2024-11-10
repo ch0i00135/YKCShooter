@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class AimController : MonoBehaviour
 {
-    public FixedJoystick joystick;
-    public Transform aim;
-    public float speed;
+    //¾È¾¸
+
+    [SerializeField] FixedJoystick joystick;
+    [SerializeField] Transform aim;
+    [SerializeField] float speed;
     Vector3 moveAim;
 
     void Start()
