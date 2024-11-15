@@ -1,15 +1,35 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] Transform cameraPivot;
-    [SerializeField] Slider cameraDistanceSlider;
-    [SerializeField] Slider cameraHeightSlider;
+    //[SerializeField] Transform camera;
+    //[SerializeField] Slider cameraDistanceSlider;
+    //[SerializeField] Slider cameraHeightSlider;
+    public bool isCameraHigh = true;
+    public float moveTime = 0.5f;
 
-    void Update()
+    public float hPosZ = 7f;
+    public float hRotX = 70f;
+
+    public float lPosZ = 15f;
+    public float lRotX = 55f;
+
+    public void SetCamera()
     {
-        transform.localPosition = new Vector3(0, 0, cameraDistanceSlider.value);
-        cameraPivot.rotation = Quaternion.Euler(cameraHeightSlider.value * 10, 0, 0);
+        Debug.Log("SetCamera");
+        if (isCameraHigh)
+        {
+            isCameraHigh = !isCameraHigh;
+            transform.DOMoveZ(lPosZ, moveTime);
+            transform.DORotate(new Vector3(lRotX, 0, 0), moveTime);
+        }
+        else
+        {
+            isCameraHigh = !isCameraHigh;
+            transform.DOMoveZ(hPosZ, moveTime);
+            transform.DORotate(new Vector3(hRotX, 0, 0), moveTime);
+        }
     }
 }

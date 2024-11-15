@@ -18,7 +18,7 @@ public class RoadController : MonoBehaviour
     }
     public void moveRoad(Transform road)
     {
-        if (road.position.z <= -60) road.position= new Vector3(0, 0, 60);
+        if (road.position.z <= -45) road.position= new Vector3(0, 0, 75);
         road.Translate(Vector3.back*moveSpeed);
     }
 }

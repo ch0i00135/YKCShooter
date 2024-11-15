@@ -46,12 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7e96227fb60fc48a13f32c2019a139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultPlayerPosition: {x: 0, y: 0, z: -7}
+  defaultPlayerPosition: {x: 0, y: 0, z: -3}
   frontWheel: {fileID: 5555554966593466273}
   moveSpeed: 20
   wheelTurnSpeed: 10
   maxWheelAngle: 30
-  alignmentThreshold: 1
   waitTimeAfterAligned: 1.5
   waitTimeAfterStart: 3
   headBone: {fileID: 5587138715904743506}

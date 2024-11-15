@@ -8,9 +8,8 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private bool expandable = true;
 
     private List<GameObject> pool;
-    private Transform poolParent;
 
-    private void Awake()
+    private void Start()
     {
         InitializePool();
     }
@@ -18,18 +17,15 @@ public class ObjectPool : MonoBehaviour
     private void InitializePool()
     {
         pool = new List<GameObject>();
-        poolParent = new GameObject(prefab.name + " Pool").transform;
-        poolParent.SetParent(transform);
 
         for (int i = 0; i < initialPoolSize; i++)
         {
             CreateNewObject();
         }
     }
-
     private GameObject CreateNewObject()
     {
-        GameObject newObj = Instantiate(prefab, poolParent);
+        GameObject newObj = Instantiate(prefab, transform);
         newObj.SetActive(false);
         pool.Add(newObj);
         return newObj;
