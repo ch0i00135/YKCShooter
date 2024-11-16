@@ -9,7 +9,7 @@ public class Bike : MonoBehaviour
 {
     [SerializeField] Vector3 defaultPlayerPosition;
 
-    [Header("바이크")]
+    [Header("오토바이")]
     [SerializeField] Transform frontWheel;
     public float moveSpeed;             // 오토바이 이동 속도
     public float wheelTurnSpeed;        // 앞바퀴 회전 속도
@@ -24,7 +24,7 @@ public class Bike : MonoBehaviour
     [Header("캐릭터")]
     [SerializeField] Transform headBone;
     public float headRotationSpeed;     // 머리 회전 속도
-    public float maxYawAngle;           // 머리 회전 각도 제한
+    public float maxRotateAngle;           // 머리 회전 각도 제한
 
     Quaternion initialHeadRotation;     // 초기 머리 각도
     
@@ -65,7 +65,7 @@ public class Bike : MonoBehaviour
         float targetYaw = targetRotation.eulerAngles.y;
 
         float angleDifference = Mathf.DeltaAngle(currentYaw, targetYaw);
-        float clampedAngleDifference = Mathf.Clamp(angleDifference, -maxYawAngle, maxYawAngle);
+        float clampedAngleDifference = Mathf.Clamp(angleDifference, -maxRotateAngle, maxRotateAngle);
 
         Quaternion newRotation = Quaternion.Euler(0, currentYaw + clampedAngleDifference, 0);
 
