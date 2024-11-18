@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7e96227fb60fc48a13f32c2019a139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultPlayerPosition: {x: 0, y: 0, z: 0}
+  defaultPlayerPosition: {x: 0.435, y: 1.661, z: 0.081}
   frontWheel: {fileID: 5555554966593466273}
   moveSpeed: 20
   wheelTurnSpeed: 10
@@ -55,7 +55,7 @@ MonoBehaviour:
   waitTimeAfterStart: 3
   headBone: {fileID: 5587138715904743506}
   headRotationSpeed: 5
-  maxYawAngle: 90
+  maxRotateAngle: 0
 --- !u!1001 &5550742253047423191
 PrefabInstance:
   m_ObjectHideFlags: 0

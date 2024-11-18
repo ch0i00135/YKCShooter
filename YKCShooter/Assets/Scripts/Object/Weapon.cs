@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] Transform muzzle;
+    [SerializeField] protected Transform muzzle;
     [SerializeField] ObjectPool bulletPool;
 
     public float bulletSpeed = 10f;
@@ -15,14 +15,20 @@ public class Weapon : MonoBehaviour
 
     protected void Attack()
     {
-        GameObject bullet=bulletPool.GetObject();
-        bullet.transform.position = muzzle.transform.position;
-        bullet.transform.rotation = muzzle.transform.rotation;
-
-        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-        if (bulletRb != null)
+        deltaTimer += Time.deltaTime;
+        if (deltaTimer > attackCooldown)
         {
-            bulletRb.linearVelocity = -muzzle.forward * bulletSpeed;
+            GameObject bullet = bulletPool.GetObject();
+            bullet.transform.position = muzzle.transform.position;
+            bullet.transform.rotation = muzzle.transform.rotation;
+
+            Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+            if (bulletRb != null)
+            {
+                bulletRb.linearVelocity = muzzle.forward * bulletSpeed;
+            }
+            deltaTimer = 0f;
         }
+        
     }
 }

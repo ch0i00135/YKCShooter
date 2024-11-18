@@ -3,36 +3,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
+using UnityEngine.U2D;
+using UnityEngine.Animations.Rigging;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] FixedJoystick joystick;
     [SerializeField] Transform character;
+    [SerializeField] Transform spineBone;
+    [SerializeField] Transform aimPivot;
+    [SerializeField] Transform aim;
     [SerializeField] Animator animator;
+    [SerializeField] Collider col;
+    [SerializeField] Rig rig;
+    
 
     void Start()
     {
-
     }
     void Update()
     {
         if (joystick.IsTouching)
         {
-            CharacterRoatate();
+            AimRotate();
+            CharacterRoatate(); 
             animator.SetBool("IsTouching", true);
+            rig.weight = 1.0f;
+            col.enabled = true;
         }
         else
         {
             animator.SetBool("IsTouching", false);
+            rig.weight = 0f;
+            col.enabled = false;
         }
     }
 
     void CharacterRoatate()
     {
+        character.rotation = aimPivot.rotation;
+    }
+    void AimRotate()
+    {
         float stickH = joystick.Horizontal;
         float stickV = joystick.Vertical;
 
         double y = Mathf.Atan2(stickH, stickV) * (180.0 / Math.PI);
-        character.rotation = Quaternion.Euler(0, (float)y+10f, 0); // 10µµ º¸Á¤
+        aimPivot.rotation = Quaternion.Euler(0, (float)y, 0);
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(aimPivot.position, aim.position);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(Tags.T_Bullet))
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }

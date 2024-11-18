@@ -3,15 +3,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Car : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    [SerializeField] Vector3 defaultPlayerPosition;
 
     [Header("차")]
-    //[SerializeField] Transform frontWheel;
-    public float moveSpeed;             // 차 이동 속도
-    //public float wheelTurnSpeed;        // 앞바퀴 회전 속도
-    //public float maxWheelAngle;         // 최대 앞바퀴 회전 각도
-    //public float waitTimeAfterAligned;  // 정렬 후 이동 대기 시간
-    //public float waitTimeAfterStart;    // 시작 후 이동 대기 시간
+    [SerializeField] Transform carObject;
+    public float moveSpeed;               // 차 이동 속도
 
     [Header("캐릭터")]
     [SerializeField] Transform spineBone;
@@ -31,7 +27,7 @@ public class Car : MonoBehaviour
     public void RotateBody()
     {
         // 대상을 바라보는 회전 계산
-        Vector3 targetDirection = (target.position - spineBone.position).normalized;
+        Vector3 targetDirection = (defaultPlayerPosition - spineBone.position).normalized;
 
         // 로컬 좌표계 보정을 위한 회전
         Quaternion correctedRotation = Quaternion.LookRotation(
@@ -44,5 +40,12 @@ public class Car : MonoBehaviour
 
         // 최종 회전 적용
         spineBone.rotation = correctedRotation * additionalRotation;
-    }    
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag(Tags.T_Bullet))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }
