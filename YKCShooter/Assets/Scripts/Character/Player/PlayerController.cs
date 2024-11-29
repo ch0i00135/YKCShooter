@@ -52,11 +52,6 @@ public class PlayerController : MonoBehaviour
         double y = Mathf.Atan2(stickH, stickV) * (180.0 / Math.PI);
         aimPivot.rotation = Quaternion.Euler(0, (float)y, 0);
     }
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(aimPivot.position, aim.position);
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Tags.T_Bullet))

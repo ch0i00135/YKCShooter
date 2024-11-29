@@ -5,7 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 
-public class TitleUIManager : MonoBehaviour
+public class TitleUIController : MonoBehaviour
 {
     [SerializeField] GameObject titleLogo;
     [SerializeField] GameObject startText;
@@ -14,14 +14,12 @@ public class TitleUIManager : MonoBehaviour
     [SerializeField] int logoY;
     [SerializeField] int buttonX;
 
+    [Header("UIState")]
+    [SerializeField] List<GameObject> uiStateObject = new List<GameObject>();
+
     private void Start()
     {
         startText.GetComponent<TextMeshProUGUI>().DOFade(0, 1.2f).SetLoops(-1, LoopType.Yoyo);
-    }
-
-    private void Update()
-    {
-        
     }
 
     // 맨 처음 터치
@@ -34,4 +32,16 @@ public class TitleUIManager : MonoBehaviour
             titleButton[i].transform.DOMoveX(buttonX, (i+1)/2f).SetEase(Ease.InSine);
         }
     }
+    public void UpdateUI(TitleUIState state)
+    {
+
+    }
+}
+[System.Serializable]
+public enum TitleUIState : byte
+{
+    Logo = 0,
+    StageSelect = 1,
+    Setting = 2,
+    HowToPlay = 3
 }

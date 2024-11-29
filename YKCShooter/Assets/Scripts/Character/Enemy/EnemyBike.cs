@@ -1,11 +1,8 @@
 using DG.Tweening;
 using System.Collections;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class Bike : MonoBehaviour
+public class EnemyBike : Enemy
 {
     [SerializeField] Vector3 defaultPlayerPosition;
 
@@ -24,18 +21,42 @@ public class Bike : MonoBehaviour
     [Header("캐릭터")]
     [SerializeField] Transform headBone;
     public float headRotationSpeed;     // 머리 회전 속도
-    public float maxRotateAngle;           // 머리 회전 각도 제한
+    public float maxRotateAngle;        // 머리 회전 각도 제한
 
     Quaternion initialHeadRotation;     // 초기 머리 각도
-    
 
-    void Start()
+    public override void OnEnable()
     {
+        base.OnEnable();
         initialHeadRotation = headBone.rotation;
-    }
-    private void OnEnable()
-    {
+        SetInitialPosition();
+        MoveToRandomZ();
         StartCoroutine(WaitAndMove(waitTimeAfterStart));
+    }
+
+    private void SetInitialPosition()
+    {
+        // X 위치 랜덤 선택 (-17~-4 또는 4~17)
+        float randomX;
+        if (Random.value < 0.5f)
+        {
+            randomX = Random.Range(-17f, -4f);
+        }
+        else
+        {
+            randomX = Random.Range(4f, 17f);
+        }
+
+        Vector3 newPosition = transform.position;
+        newPosition.x = randomX;
+        newPosition.z = 45f;  // 초기 Z 위치
+        transform.position = newPosition;
+    }
+
+    private void MoveToRandomZ()
+    {
+        float randomZ = Random.Range(7f, 30f);
+        transform.DOMoveZ(randomZ, 1f);  // 1초 동안 이동
     }
 
     void Update()
@@ -85,14 +106,6 @@ public class Bike : MonoBehaviour
             {
                 transform.DOMoveZ(defaultPlayerPosition.z, Mathf.Abs(zOffset)/10f);
             }
-            //if(zOffset < 0)
-            //{
-            //    transform.position += transform.forward * moveSpeed/2 * Time.deltaTime;
-            //}
-            //else if(zOffset > 0)
-            //{
-            //    transform.position -= transform.forward * moveSpeed * Time.deltaTime;
-            //}
         }
         else
         {
@@ -115,7 +128,6 @@ public class Bike : MonoBehaviour
         {
             transform.DOMove(defaultPlayerPosition, 1.5f);
         }
-        //transform.position += direction * moveSpeed * Time.deltaTime;
     }
 
     IEnumerator WaitAndMove(float waitTime)
