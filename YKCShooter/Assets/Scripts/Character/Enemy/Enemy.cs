@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void OnEnable()
     {
-        ResetColor();
+        //ResetColor();
     }
 
     private void ResetColor()
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         float targetX = transform.position.x + (destroyMoveDistance * direction);
 
         // 현재 오브젝트를 이동시키고 완료 후 비활성화
-        transform.DOMoveZ(targetX, destroyMoveDuration)
+        transform.DOMoveX(targetX, destroyMoveDuration)
             .SetEase(Ease.OutQuad)
             .OnComplete(() => {
                 gameObject.SetActive(false);

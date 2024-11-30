@@ -14,11 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNo: 1
   type: 0
-  playerAimPivotPosition: {x: 0.45, y: 3, z: 0.1}
-  timeLine:
-  - monsterData: {fileID: 11400000, guid: 2ce6651ba953b3f42b54468293051180, type: 2}
-    time: 0
+  timeline:
+  - enemyType: 0
+    time: 1
     isLastEnemy: 0
-  - monsterData: {fileID: 0}
-    time: 0
+  - enemyType: 0
+    time: 3
     isLastEnemy: 0
+  - enemyType: 1
+    time: 5
+    isLastEnemy: 0
+  - enemyType: 0
+    time: 7
+    isLastEnemy: 0
+  - enemyType: 0
+    time: 9
+    isLastEnemy: 0
+  - enemyType: 0
+    time: 11
+    isLastEnemy: 0
+  - enemyType: 1
+    time: 13
+    isLastEnemy: 1

@@ -1024,7 +1024,6 @@ GameObject:
   - component: {fileID: 1320681645}
   - component: {fileID: 1320681644}
   - component: {fileID: 1320681646}
-  - component: {fileID: 1320681647}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1045,7 +1044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 1320681646}
-  stageManager: {fileID: 1320681647}
+  stageManager: {fileID: 0}
+  target: {fileID: 0}
 --- !u!4 &1320681645
 Transform:
   m_ObjectHideFlags: 0
@@ -1073,20 +1073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd16adb98ffea1c4dbfeb902692c5286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1320681647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320681643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ecd77710c70cef4f92c1e826e265b59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageData: {fileID: 0}
-  playerAimPivotPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1497871133
 GameObject:
   m_ObjectHideFlags: 0

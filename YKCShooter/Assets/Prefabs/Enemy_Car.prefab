@@ -100,8 +100,8 @@ MonoBehaviour:
   muzzle: {fileID: 6636828907214077851}
   bulletPool: {fileID: 5963678332013418071}
   bulletSpeed: 40
-  attackCooldown: 1
-  firstDelay: 3
+  attackCooldown: 3
+  firstDelay: 5
 --- !u!1 &5424885720835466283
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public SceneLoader sceneLoader;
-    public StageManager stageManager;
+    //public StageManager stageManager;
     public Transform target;
 
     void Awake()
@@ -43,6 +43,6 @@ public class GameManager : MonoBehaviour
     private void Reset()
     {
         sceneLoader=GetComponent<SceneLoader>();
-        stageManager=GetComponent<StageManager>();
+        //stageManager=GetComponent<StageManager>();
     }
 }

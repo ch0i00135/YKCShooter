@@ -5,26 +5,26 @@ public class StageData : ScriptableObject
 {
     public short stageNo;
     public StageType type;
-    public StageTimeLine[] timeLine;
+    public StageTimeline[] timeline;
 }
 [System.Serializable]
-public class StageTimeLine
+public class StageTimeline
 {
-    public MonsterData monsterData;
+    public EnemyType enemyType;
     public float time;
     public bool isLastEnemy;
 }
-public enum StageType
+public enum StageType : byte
 {
-    Normal,
-    Elite,
-    Boss
+    Normal = 0,
+    Elite = 1,
+    Boss = 2
 }
-public enum MonsterData
+public enum EnemyType : byte
 {
-    Bike,
-    Car,
-    Truck,
-    Elite,
-    Boss
+    Bike = 0,
+    Car = 1,
+    Truck = 2,
+    Elite = 3,
+    Boss = 4
 }

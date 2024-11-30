@@ -4365,81 +4365,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161259382}
   m_CullTransparentMesh: 1
---- !u!1 &1173930072
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1173930076}
-  - component: {fileID: 1173930075}
-  - component: {fileID: 1173930074}
-  - component: {fileID: 1173930073}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1173930073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173930072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ecd77710c70cef4f92c1e826e265b59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageData: {fileID: 0}
-  playerAimPivotPosition: {x: 0, y: 0, z: 0}
---- !u!114 &1173930074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173930072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd16adb98ffea1c4dbfeb902692c5286, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1173930075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173930072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c91c417dc281b864cb673335667b57ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneLoader: {fileID: 1173930074}
-  stageManager: {fileID: 1173930073}
-  target: {fileID: 0}
---- !u!4 &1173930076
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173930072}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1202167632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5234,8 +5159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzle: {fileID: 854511210}
   bulletPool: {fileID: 1491898369}
-  bulletSpeed: 20
-  attackCooldown: 0.3
+  bulletSpeed: 40
+  attackCooldown: 0.4
   firstDelay: 0.3
   joystick: {fileID: 1600996266}
   aim: {fileID: 419066493}
@@ -6546,7 +6471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1750418254
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7599,6 +7524,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2070305452}
+  - component: {fileID: 2070305453}
+  - component: {fileID: 2070305454}
   m_Layer: 0
   m_Name: EnemyGenerator
   m_TagString: Untagged
@@ -7624,6 +7551,37 @@ Transform:
   - {fileID: 1930886018}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2070305453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070305451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d45fc2b2b04614f945833d6a949311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPools:
+  - type: 0
+    pool: {fileID: 1930886019}
+  - type: 1
+    pool: {fileID: 2038211990}
+--- !u!114 &2070305454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070305451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecd77710c70cef4f92c1e826e265b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageData: {fileID: 11400000, guid: a5956fd3deefa654c834c82ca001d047, type: 2}
+  enemyGenerator: {fileID: 2070305453}
 --- !u!1 &2099147446
 GameObject:
   m_ObjectHideFlags: 0
@@ -7822,5 +7780,4 @@ SceneRoots:
   - {fileID: 118320555}
   - {fileID: 1790088158}
   - {fileID: 1517830949}
-  - {fileID: 1173930076}
   - {fileID: 2070305452}
